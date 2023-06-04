@@ -1,0 +1,24 @@
+
+<h1>User Validation</h1>
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
+  <mat-form-field appearance="outline">
+    <mat-label>User Name</mat-label>
+    <input matInput formControlName="userName" >
+    <mat-error class="error" *ngIf="!isValid('userName')">User Name is required.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Age</mat-label>
+    <input matInput formControlName="age" type="number">
+    <mat-error class="error" *ngIf="!isValid('age')">Age is required.</mat-error>
+    <mat-error class="error" *ngIf="!ageValidRange()">Age must be between 30 to 60.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Address</mat-label>
+    <input matInput formControlName="address" >
+    <mat-error class="error" *ngIf="!isValid('address')">Address is required.</mat-error>
+  </mat-form-field>
+
+  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+</form>

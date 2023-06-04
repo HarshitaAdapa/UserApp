@@ -1,0 +1,5 @@
+<div class="container">
+  
+  <app-user-validation *ngIf="displayFlag" (sendData)="sendData($event)"></app-user-validation>
+  <app-user-details *ngIf="!displayFlag" (changeDisplay)="changeDisplay($event)"></app-user-details>
+ </div>
